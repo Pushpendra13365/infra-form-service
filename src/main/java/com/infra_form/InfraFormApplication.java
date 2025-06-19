@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class InfraFormServiceApplication {
+public class InfraFormApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(InfraFormServiceApplication.class, args);
+		SpringApplication.run(InfraFormApplication.class, args);
 	}
 
 }
