@@ -21,7 +21,7 @@ public class GpCivilFormServiceImpl implements GpCivilFormService {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
-    public List<GpCivilFormResponseDTO> uploadForms(GpCivilFormRequestDTO requestDTO) {
+    public List<ApiResponse> uploadForms(GpCivilFormRequestDTO requestDTO) {
         return requestDTO.getFormList().stream().map(dto -> {
             GpCivilForm form = null;
             try {
@@ -88,9 +88,9 @@ public class GpCivilFormServiceImpl implements GpCivilFormService {
 
                 repository.save(form);
             } catch (JsonProcessingException e) {
-                return new GpCivilFormResponseDTO(dto.getId(), 0, "Photo data conversion failed");
+                return new ApiResponse(dto.getId(), 0, "Photo data conversion failed");
             }
-            return new GpCivilFormResponseDTO(dto.getId(), 1, "Data uploaded successfully");
+            return new ApiResponse(dto.getId(), 1, "Data uploaded successfully");
         }).collect(Collectors.toList());
     }
 

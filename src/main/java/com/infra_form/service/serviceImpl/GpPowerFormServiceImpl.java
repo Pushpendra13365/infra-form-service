@@ -1,8 +1,8 @@
 package com.infra_form.service.serviceImpl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.infra_form.dto.ApiResponse;
 import com.infra_form.dto.GpPowerFormRequestDTO;
-import com.infra_form.dto.GpPowerFormResponseDTO;
 import com.infra_form.model.GpPowerForm;
 import com.infra_form.repository.GpPowerFormRepository;
 import com.infra_form.service.GpPowerFormService;
@@ -23,11 +23,11 @@ public class GpPowerFormServiceImpl implements GpPowerFormService {
     private final ObjectMapper objectMapper;
 
     @Override
-    public List<GpPowerFormResponseDTO> saveGpPowerFormList(GpPowerFormRequestDTO request) {
+    public List<ApiResponse> saveGpPowerFormList(GpPowerFormRequestDTO request) {
         return request.getFormList().stream().map(form -> {
             GpPowerForm entity = GpPowerFormMapper.mapToEntity(form, request.getUserId(), objectMapper);
             repository.save(entity);
-            return new GpPowerFormResponseDTO(entity.getId(), 1, "Data uploaded successfully");
+            return new ApiResponse(entity.getId(), 1, "Data uploaded successfully");
         }).collect(Collectors.toList());
     }
 }

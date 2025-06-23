@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class GpPowerFormResponseDTO {
+public class ApiResponse {
     private Long id;
     private Integer syncStatus;
     private String serverMsg;

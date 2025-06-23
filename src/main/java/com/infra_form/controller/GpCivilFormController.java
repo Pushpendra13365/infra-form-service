@@ -16,7 +16,8 @@ public class GpCivilFormController {
     private final GpCivilFormService service;
 
     @PostMapping("/upload")
-    public ResponseEntity<List<GpCivilFormResponseDTO>> uploadForms(@RequestBody GpCivilFormRequestDTO requestDTO) {
-        return ResponseEntity.ok(service.uploadForms(requestDTO));
+    public ResponseEntity<List<ApiResponse>> uploadForms(@RequestBody GpCivilFormRequestDTO requestDTO) {
+        List<ApiResponse> responses = service.uploadForms(requestDTO);
+        return ResponseEntity.ok(responses);
     }
 }

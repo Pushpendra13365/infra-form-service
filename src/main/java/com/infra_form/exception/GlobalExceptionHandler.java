@@ -27,20 +27,13 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<?> handleResourceNotFound(ResourceNotFoundException ex) {
+    public ResponseEntity<String> handleResourceNotFound(ResourceNotFoundException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<?> handleGeneralException(Exception ex) {
+    public ResponseEntity<String> handleGeneralException(Exception ex) {
         log.error("Unhandled exception: {}", ex.getMessage(), ex);
-        return new ResponseEntity<>("Internal Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>("Internal Server Error: " + ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
-
-//    @ExceptionHandler(Exception.class)
-//    public ResponseEntity<String> handleAllExceptions(Exception e) {
-//        return ResponseEntity.internalServerError()
-//                .body("Something went wrong: " + e.getMessage());
-//    }
 }
-

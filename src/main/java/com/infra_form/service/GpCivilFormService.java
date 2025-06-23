@@ -1,10 +1,10 @@
 package com.infra_form.service;
 
+import com.infra_form.dto.ApiResponse;
 import com.infra_form.dto.GpCivilFormRequestDTO;
-import com.infra_form.dto.GpCivilFormResponseDTO;
 
 import java.util.List;
 
 public interface GpCivilFormService {
-    List<GpCivilFormResponseDTO> uploadForms(GpCivilFormRequestDTO requestDTO);
+    List<ApiResponse> uploadForms(GpCivilFormRequestDTO requestDTO);
 }

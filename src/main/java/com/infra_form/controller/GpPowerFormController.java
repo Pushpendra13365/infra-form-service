@@ -1,7 +1,7 @@
 package com.infra_form.controller;
 
+import com.infra_form.dto.ApiResponse;
 import com.infra_form.dto.GpPowerFormRequestDTO;
-import com.infra_form.dto.GpPowerFormResponseDTO;
 import com.infra_form.service.GpPowerFormService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,9 +17,8 @@ public class GpPowerFormController {
     private final GpPowerFormService gpPowerFormService;
 
     @PostMapping("/upload")
-    public ResponseEntity<List<GpPowerFormResponseDTO>> uploadGpPowerForm(
-            @RequestBody GpPowerFormRequestDTO request) {
-        List<GpPowerFormResponseDTO> response = gpPowerFormService.saveGpPowerFormList(request);
+    public ResponseEntity<List<ApiResponse>> uploadGpPowerForm(@RequestBody GpPowerFormRequestDTO request) {
+        List<ApiResponse> response = gpPowerFormService.saveGpPowerFormList(request);
         return ResponseEntity.ok(response);
     }
 }

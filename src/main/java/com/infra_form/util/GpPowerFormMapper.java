@@ -45,12 +45,12 @@ public class GpPowerFormMapper {
         entity.setComputerOperatorEmail(dto.getComputerOperatorEmail());
         entity.setCreatedDate(dto.getCreatedDate());
         entity.setUpdatedDate(dto.getUpdatedDate());
-        entity.setSyncStatus(1); // successful
+        entity.setSyncStatus(1);
         entity.setServerMsg("Data uploaded successfully");
         entity.setFormSubmitStatus(dto.getFormSubmitStatus());
 
         try {
-            entity.setPhotoJsonDump(objectMapper.writeValueAsString(dto)); // store raw JSON if needed
+            entity.setPhotoJsonDump(objectMapper.writeValueAsString(dto));
         } catch (JsonProcessingException e) {
             entity.setPhotoJsonDump("[]");
         }
