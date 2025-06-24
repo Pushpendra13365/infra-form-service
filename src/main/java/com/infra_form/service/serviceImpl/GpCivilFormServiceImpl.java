@@ -21,7 +21,7 @@ public class GpCivilFormServiceImpl implements GpCivilFormService {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
-    public List<ApiResponse> uploadForms(GpCivilFormRequestDTO requestDTO) {
+    public List<ApiResponse> uploadGpCivilForm(GpCivilFormRequestDTO requestDTO) {
         return requestDTO.getFormList().stream().map(dto -> {
             GpCivilForm form = null;
             try {
